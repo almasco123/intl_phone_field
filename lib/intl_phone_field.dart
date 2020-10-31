@@ -53,7 +53,7 @@ class IntlPhoneField extends StatefulWidget {
     this.showDropdownIcon = true,
     this.dropdownDecoration = const BoxDecoration(),
     this.inputFormatters,
-    this.maxLength = 10,
+    this.maxLength = 11,
     this.enabled = true,
     this.keyboardAppearance = Brightness.light,
   });
