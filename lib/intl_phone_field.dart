@@ -70,7 +70,7 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
   // final TextInputFormatter formatter =
   //     TextInputFormatter.withFunction((oldValue, newValue) {
   //   if (newValue.text.length <= oldValue.text.length) return newValue;
-  //   return newValue.text.length > 10 ? oldValue : newValue;
+  //   return newValue.text.length > 11 ? oldValue : newValue;
   // });
 
   @override
@@ -81,7 +81,7 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
           .firstWhere((item) => item['code'] == widget.initialCountryCode);
     }
     validator = widget.autoValidate
-        ? (value) => value.length != 10 ? 'Invalid Mobile Number' : null
+        ? (value) => value.length != 11 ? 'Invalid Mobile Number' : null
         : widget.validator;
   }
 
@@ -103,8 +103,9 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
                   onChanged: (value) {
                     setState(() {
                       filteredCountries = countries
-                          .where((country) =>
-                              country['name'].toLowerCase().contains(value.toLowerCase()))
+                          .where((country) => country['name']
+                              .toLowerCase()
+                              .contains(value.toLowerCase()))
                           .toList();
                     });
                   },
